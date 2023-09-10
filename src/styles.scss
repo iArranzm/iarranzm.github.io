@@ -1,1 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+$bgColor_light: #f8f8f2;
+$bgColor_dark: #3e3d32;
+
+$textColor_light: #272822;
+$textColor_dark: #f8f8f2;
+
+$borderColor_light: #3e3d32;
+$borderColor_dark: #f8f8f2;
+
+$navbarColor_light: #6c757d;
+$navbarColor_dark: #272822;
+
+@mixin dark_theme() {
+	--bgColor: #{$bgColor_dark};
+	--textColor: #{$textColor_dark};
+	--borderColor: #{$borderColor_dark};
+	--navbarColor: #{$navbarColor_dark};
+}
+
+@mixin light_theme() {
+	--bgColor: #{$bgColor_light};
+	--textColor: #{$textColor_light};
+	--borderColor: #{$borderColor_light};
+	--navbarColor: #{$navbarColor_light};
+}
+
+html,
+body {
+	// height: calc(100vh - 65px);
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 16px;
+	background-color: var(--bgColor);
+	color: var(--textColor);
+	font-family: 'Poppins';
+	transition: all ease 0.5s;
+
+	&.dark {
+		@include dark_theme();
+	}
+
+	&.light {
+		@include light_theme();
+	}
+}
